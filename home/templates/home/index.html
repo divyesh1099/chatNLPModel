@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Chatify</h5>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="question">Ask a Question:</label>
+                        <input type="text" class="form-control" name="question" id="question" placeholder="Enter your question...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Ask</button>
+                </form>
+                {% if question %}
+                <div class="mt-3">
+                    <strong>Your Question:</strong> {{ question }}
+                    <br>
+                    <strong>Answer:</strong> {{ answer }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <!-- Side content, if needed -->
+    </div>
+</div>
+{% endblock %}
